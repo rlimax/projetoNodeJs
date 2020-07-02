@@ -1,4 +1,4 @@
-# projetoNodeJs
+﻿# projetoNodeJs
 Repositório de aulas com NodeJs.
 
 **Instalar módulos no NodeJS**
@@ -15,4 +15,5 @@ Efetuar a captura de uma lista de livros e suas informações em um site.
   <li>Ano de publicação</li>
   <li>Valor</li>
   <li>Endereço da imagem de capa</li>
+  <li>Endereço do livro</li>
 </ul>
