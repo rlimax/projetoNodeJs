@@ -20,4 +20,4 @@ Efetuar a captura de uma lista de livros e suas informações em um site.
   <li>Endereço do livro</li>
 </ul>
 
-Concluído com a persistencia de 10k registros.
+Concluído com a persistência de 10k registros.
