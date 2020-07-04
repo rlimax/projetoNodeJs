@@ -1,6 +1,7 @@
 const request = require('request-promise');
 const cheerio = require('cheerio');
 
+const tb_livro = require('./functions/functions');
 //const URL = 'https://ptax.bcb.gov.br/ptax_internet/consultarUltimaCotacaoDolar.do';
 //const URL2 = 'https://www.estantevirtual.com.br/livreiros/casaraodlivros';
 
@@ -8,7 +9,7 @@ async function acesso(){
     var URL2 = 'https://www.estantevirtual.com.br/livreiros/casaraodlivros';
     var num = 0;
     let contador = 0;
-    while(contador<2){
+    while(contador<502){
         contador++;
         if(contador==1){
             URL2 = 'https://www.estantevirtual.com.br/livreiros/casaraodlivros';
@@ -17,7 +18,7 @@ async function acesso(){
         }
         const response = await request(URL2);
         let $ = cheerio.load(response);
-        
+
         //Recupera e trata nome do livro
         let nomelivro = $('h2[itemprop=name]').text();
         nomelivro = nomelivro.split("\n              ");
@@ -63,13 +64,25 @@ async function acesso(){
                     //console.log(`imagem = ${src}`);
             }
         );
-        //Imprime informações recuperadas livro
+        //Imprime e/ou grava informações recuperadas dos livros
+        num++
         for (let i=0; i<ano.length; i++){
-            num++
-            console.log(`Indice: ${num} | Valor: ${preco[i]} | Livro: ${nomelivro[i]} - Ano: ${ano[i]}`);
-            console.log(`imagem: ${capaList[i]}`);
-            console.log(`endereço: ${linkTit[i]}`);
+            
+            tb_livro.create({
+                nome: nomelivro[i],
+                ano: ano[i],
+                preco: preco[i],
+                imagem: capaList[i],
+                link: linkTit[i]
+            }).then(console.log('Pagina '+num+' gravada com sucesso.')).catch(function(erro){
+                console.log('Houve um erro na pagina '+num+' - erro:'+erro);
+            });
+
+            //console.log(`Indice: ${num} | Valor: ${preco[i]} | Livro: ${nomelivro[i]} - Ano: ${ano[i]}`);
+            //console.log(`imagem: ${capaList[i]}`);
+            //console.log(`endereço: ${linkTit[i]}`);
         }
+        
     }
 
 }
