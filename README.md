@@ -11,7 +11,7 @@ Repositório de aulas com NodeJs.
 </ul>
   
 **Objetivo:**
-Efetuar a captura de uma lista de livros e suas informações em um site.
+Efetuar a captura de uma lista de livros e suas informações em um site e persistir em um BD (Mysql).
 <ul>
   <li>Nome do livro</li>
   <li>Ano de publicação</li>
