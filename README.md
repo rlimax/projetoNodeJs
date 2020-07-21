@@ -21,3 +21,8 @@ Efetuar a captura de uma lista de livros e suas informações em um site e persi
 </ul>
 
 Concluído com a persistência de 10k registros.
+
+Verificar atualização de dependência quando implementar.
+  <ul>
+    <li>lodash</li>
+  </ul>
