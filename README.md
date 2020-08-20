@@ -1,5 +1,4 @@
 ﻿# projetoNodeJs
-Repositório de aulas com NodeJs.
 
 **Instalar módulos no NodeJS**
 <ul>
